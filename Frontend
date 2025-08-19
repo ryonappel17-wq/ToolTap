@@ -1,3 +1,29 @@
-mkdir tooltap-frontend
-cd tooltap-frontend
-git init
+// This is a starter structure for the ToolTap tool rental web app built using React.
+// It includes routes for Home, Tool Bundles, Tool Details, Cart, and Admin. This would be connected to a backend later.
+
+import React from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import HomePage from './pages/HomePage';
+import BundlesPage from './pages/BundlesPage';
+import ToolDetailPage from './pages/ToolDetailPage';
+import CartPage from './pages/CartPage';
+import AdminPage from './pages/AdminPage';
+import NavBar from './components/NavBar';
+import './App.css';
+
+function App() {
+  return (
+    <Router>
+      <NavBar />
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/bundles" element={<BundlesPage />} />
+        <Route path="/tool/:toolId" element={<ToolDetailPage />} />
+        <Route path="/cart" element={<CartPage />} />
+        <Route path="/admin" element={<AdminPage />} />
+      </Routes>
+    </Router>
+  );
+}
+
+export default App;
